@@ -1,0 +1,48 @@
+<fieldset id="payment" data-hook>
+  <legend align="center"><%= Spree.t(:payment_information) %></legend>
+  <div data-hook="checkout_payment_step">
+
+    <div id="payment-method-fields" data-hook>
+      <p>
+        <label>
+          <%= radio_button_tag "order[payments_attributes][][payment_method_id]", "ideal", true %>
+          <strong><%= Spree.t(:mollie_ideal) %></strong>
+          <%= Spree.t(:mollie_ideal_description) %>
+        </label>
+      </p>
+      <p>
+        <label>
+          <%= radio_button_tag "order[payments_attributes][][payment_method_id]", "mistercash" %>
+          <strong><%= Spree.t(:mollie_mistercash) %></strong>
+          <%= Spree.t(:mollie_mistercash_description) %>
+        </label>
+      </p>      
+      <p>
+        <label>
+          <%= radio_button_tag "order[payments_attributes][][payment_method_id]", "creditcard" %>
+          <strong><%= Spree.t(:mollie_creditcard) %></strong>
+          <%= Spree.t(:mollie_creditcard_description) %>
+        </label>
+      </p>
+      <p>
+        <label>
+          <%= radio_button_tag "order[payments_attributes][][payment_method_id]", "banktransfer" %>
+          <strong><%= Spree.t(:mollie_banktransfer) %></strong>
+          <%= Spree.t(:mollie_banktransfer_description) %>
+        </label>
+      </p>
+    </div>
+    <br style="clear:both;" />
+    <p class='field' data-hook='coupon_code'>
+      <%= form.label :coupon_code %><br />
+      <%= form.text_field :coupon_code %>
+    </p>
+    <img src="https://www.mollie.nl/images/badge-betaling-medium.png" alt="Powered By Mollie">
+</fieldset>
+
+<br class="space" />
+
+<div class="form-buttons" data-hook="buttons">
+  <%= submit_tag Spree.t(:save_and_continue), :class => 'continue button primary' %>
+  <script>Spree.disableSaveOnClick();</script>
+</div>

@@ -1,0 +1,87 @@
+<fieldset>
+  <legend><%= Spree.t(:mollie) %></legend>
+
+  <table class="index">
+    <tr>
+      <th colspan="6"><%= Spree.t(:mollie_transaction) %></th>
+    </tr>
+    <tr>
+      <td><label><%= Spree.t(:mollie_transaction_id) %>:</label></td>
+      <td>
+        <%= payment.source.transaction_id %>
+      </td>
+    </tr>
+    <tr>
+      <td><label><%= Spree.t(:mollie_mode) %>:</label></td>
+      <td>
+        <%= payment.source.mode %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_status) %>:</label></td>
+      <td>
+        <%= payment.source.status %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_amount) %>:</label></td>
+      <td>
+        <%= payment.source.amount %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_description) %>:</label></td>
+      <td>
+        <%= payment.source.description %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_method) %>:</label></td>
+      <td>
+        <%= payment.source.method %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_created_at) %>:</label></td>
+      <td>
+        <%= payment.source.created_at %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_paid_at) %>:</label></td>
+      <td>
+        <%= payment.source.paid_at %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_cancelled_at) %>:</label></td>
+      <td>
+        <%= payment.source.cancelled_at %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_expired_at) %>:</label></td>
+      <td>
+        <%= payment.source.expired_at %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_amount_refunded) %>:</label></td>
+      <td>
+        <%= payment.source.amount_refunded %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_amount_remaining) %>:</label></td>
+      <td>
+        <%= payment.source.amount_remaining %>
+      </td>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_refunded_at) %>:</label></td>
+      <td>
+        <%= payment.source.refunded_at %>
+      </td>
+    </tr>
+  </table>
+</fieldset>

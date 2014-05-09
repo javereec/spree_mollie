@@ -1,0 +1,15 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  spree: 
+    mollie: Mollie
+    mollie_banktransfer: Banktransfer
+    mollie_banktransfer_description: Receive instruction for manual payment
+    mollie_creditcard: Creditcard
+    mollie_creditcard_description: Pay quick and easy
+    mollie_ideal: iDEAL
+    mollie_ideal_description: Online payment for Dutch banks
+    mollie_mistercash: Bankcontact/Mister Cash
+    mollie_mistercash_description: Online payment for Belgian banks
+    payment_has_expired: The payment is expired.
