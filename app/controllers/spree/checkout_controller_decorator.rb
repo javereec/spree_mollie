@@ -10,14 +10,14 @@ module Spree
 
       # check to see if there is an existing mollie payment pending
       mollie_payment_method = PaymentMethod.find_by(type: 'Spree::PaymentMethod::MolliePayment')
-      payment = @order.payments.pending.where(payment_method: mollie_payment_method).first
-      
-      begin 
+      payment = @order.payments.valid.where(payment_method: mollie_payment_method).first
+
+      begin
         mollie = Mollie::API::Client.new
         mollie.setApiKey mollie_payment_method.preferred_api_key
         mollie_payment = mollie.payments.get(payment.source.transaction_id) if payment
 
-        unless payment && mollie_payment && mollie_payment.status == 'open'
+        unless payment && mollie_payment && ['open','pending'].include?(mollie_payment.status)
           mollie_payment = mollie.payments.create \
             :amount       => @order.total,
             :description  => "Payment for order #{@order.number}",
@@ -26,8 +26,8 @@ module Spree
             :metadata     => {
               :order => @order.number
             }
-  
-          # Create mollie payment        
+
+          # Create mollie payment
           payment = @order.payments.create!({
             :source => Spree::MollieCheckout.create({
                 :transaction_id => mollie_payment.id,
@@ -40,7 +40,7 @@ module Spree
             :amount => @order.total,
             :payment_method => mollie_payment_method
           })
-          payment.pend!
+          # payment.pend!
         end
 
         redirect_to mollie_payment.getPaymentUrl and return

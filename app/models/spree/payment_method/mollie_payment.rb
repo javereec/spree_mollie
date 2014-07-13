@@ -2,8 +2,8 @@ module Spree
   class PaymentMethod::MolliePayment < PaymentMethod
     preference :api_key, :string
 
-    def actions
-      %w{void}
+    def capture(*args)
+      ActiveMerchant::Billing::Response.new(true, "", {}, {})
     end
 
     def void(*args)

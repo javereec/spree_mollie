@@ -2,7 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  spree: 
+  spree:
     mollie: Mollie
     mollie_banktransfer: Banktransfer
     mollie_banktransfer_description: Receive instruction for manual payment
@@ -13,3 +13,4 @@ en:
     mollie_mistercash: Bankcontact/Mister Cash
     mollie_mistercash_description: Online payment for Belgian banks
     payment_has_expired: The payment is expired.
+    payment_is_pending: Your payment is still pending. Your order will be processed from the moment we have received payment.
