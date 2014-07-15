@@ -107,6 +107,7 @@ module Spree
         else
           raise "Unexpected payment status"
         end
+        payment.save # trigger updates (e.g. order)
       end
     end
   end
