@@ -6,6 +6,10 @@ module Spree
       ActiveMerchant::Billing::Response.new(true, "", {}, {})
     end
 
+    def credit(*args)
+      ActiveMerchant::Billing::Response.new(true, "", {}, {})
+    end
+
     def void(*args)
       ActiveMerchant::Billing::Response.new(true, "", {}, {})
     end
