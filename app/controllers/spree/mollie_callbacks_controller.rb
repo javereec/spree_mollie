@@ -70,10 +70,10 @@ module Spree
       })
       unless payment.completed?
         case mollie_payment.status
-        when "open"
-          order.next
+        when "open" # The payment has been created, but no other status has been reached yet.
+          order.update_attributes({:state => "complete", :completed_at => Time.now})
           order.finalize!
-        when "paid", "paidout" # The payment has been created, but no other status has been reached yet. The payment has been paid for. The payment has been paid for and we have transferred the sum to your bank account.
+        when "paid", "paidout" # The payment has been paid for. The payment has been paid for and we have transferred the sum to your bank account.
           order.update_attributes({:state => "complete", :completed_at => Time.now})
           until order.state == "complete"
             if order.next!
