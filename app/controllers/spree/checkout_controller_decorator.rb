@@ -21,7 +21,7 @@ module Spree
           mollie_payment = mollie.payments.create \
             :amount       => @order.total,
             :description  => "Payment for order #{@order.number}",
-            :redirectUrl  => mollie_url(@order),
+            :redirectUrl  => mollie_url(@order, :utm_nooverride => 1), # ensure that transactions are credited to the original traffic source
             :method       => params[:order][:payments_attributes][0][:payment_method_id],
             :metadata     => {
               :order => @order.number
