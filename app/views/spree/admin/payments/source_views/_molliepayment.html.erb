@@ -83,5 +83,33 @@
         <%= payment.source.refunded_at %>
       </td>
     </tr>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_banktransfer_bank_name) %>:</label></td>
+      <td>
+        <%= payment.source.banktransfer_bank_name %>
+      </td>
+    </tr>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_banktransfer_bank_account) %>:</label></td>
+      <td>
+        <%= payment.source.banktransfer_bank_account %>
+      </td>
+    </tr>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_banktransfer_bank_bic) %>:</label></td>
+      <td>
+        <%= payment.source.banktransfer_bank_bic %>
+      </td>
+    </tr>
+    </tr>
+     <tr>
+      <td><label><%= Spree.t(:mollie_banktransfer_transfer_reference) %>:</label></td>
+      <td>
+        <%= payment.source.banktransfer_transfer_reference %>
+      </td>
+    </tr>
   </table>
 </fieldset>
