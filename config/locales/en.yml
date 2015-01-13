@@ -8,6 +8,7 @@ en:
     mollie_banktransfer_description: Receive instruction for manual payment
     mollie_creditcard: Creditcard
     mollie_creditcard_description: Pay quick and easy
+    mollie_processing_error: Something went wrong when processing your payment/refund.
     mollie_ideal: iDEAL
     mollie_ideal_description: Online payment for Dutch banks
     mollie_mistercash: Bankcontact/Mister Cash
