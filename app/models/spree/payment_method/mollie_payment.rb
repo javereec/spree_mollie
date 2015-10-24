@@ -2,8 +2,10 @@ module Spree
   class PaymentMethod::MolliePayment < PaymentMethod
     preference :api_key, :string
 
-    def cancel(response); end
-    
+    def cancel(*)
+      ActiveMerchant::Billing::Response.new(true, "", {}, {})
+    end
+
     def capture(*args)
       ActiveMerchant::Billing::Response.new(true, "", {}, {})
     end
@@ -36,7 +38,7 @@ module Spree
         logger.debug "Mollie API call failed: " << (CGI.escapeHTML e.message)
         ActiveMerchant::Billing::Response.new(false, [Spree.t(:mollie_processing_error), e.message].join(' '), {}, {})
       end
-      
+
     end
 
     def void(*args)
